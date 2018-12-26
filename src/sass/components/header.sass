@@ -1,0 +1,75 @@
+#header
+  &.scrolling .header-lower
+    z-index: -1
+    position: absolute
+    right: 0
+    left: 0
+    top: 6rem
+    box-shadow: 0px 1px 1px #d6d6d6
+  &.scrolled .header-lower
+    margin-top: -4rem
+
+.header-middle
+  font-size: 0.875rem
+  i
+    font-size: 1.2rem
+
+.nav-upper
+  font-size: 0.875rem
+  i
+    font-size: 1.2rem
+  .nav-item:hover .dropdown-container
+    display: block !important
+  .account .dropdown-container
+    width: 10rem
+    z-index: 2
+
+.minicart-summary
+  width: 1.1rem
+  height: 1.1rem
+  font-size: 0.6rem
+  top: 0
+  right: -0.1rem
+
+.header-search
+  button
+    background-color: transparent
+    right: 0px
+    top: -2px
+    &:hover
+      background-color: transparent
+      color: #ff2b73
+  input
+    border: 1px solid #ced4da !important
+    transition: all 0.5s ease-out
+    width: 16rem
+    &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder
+      color: #3d3d3d
+      font-size: 0.725rem
+    &:focus
+      width: 18rem
+      &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder
+        color: #000
+
+.favorite-counter
+  width: 1.1rem
+  height: 1.1rem
+  font-size: 0.6rem
+  top: 0
+  right: -0.1rem
+
+.brand-motto
+  font-family: "Merriweather", serif
+  color: #3b3b3b
+  span
+    color: #ff2b73
+
+.wrapper_top-header
+  z-index: 10
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+
+//body
+  //padding-top: 75px !important
