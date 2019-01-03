@@ -1,9 +1,10 @@
 import React from 'react';
 // import logo from './logo.svg';
 import SiteHeader from './components/SiteHeader';
+import Homepage from './pages/Homepage';
 import "./sass/main.sass";
 
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 
 const ThemeContext = React.createContext("pink");
 
@@ -19,7 +20,7 @@ export default function App() {
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button> */}
-      
+      <Homepage />
     </div>
   );
 }
