@@ -1,6 +1,3 @@
-import React from 'react';
-import Paragraph from '../components/Paragraph';
-
 let paragraphs = [
   {
     "image": {
@@ -143,15 +140,26 @@ let paragraphs = [
   }
 ]
 
-export default function Homepage() {
-  return (
-    <div className="d-flex flex-wrap">  
-      <div className="container-fluid">
-        <div className="row">
-          {paragraphs.map((o,i) => {return (<Paragraph key={i} data={o} />)})}
-        </div>
-      </div>
-      
-    </div>
-  )
+let paragraphDefault = {
+  "image": {
+    "position": "top",
+    "width": "full",
+    "src": "/img/banner-1.jpg"
+  },
+  "button": {
+    "text": "Added",
+    "style": "btn btn-dark rounded-0",
+    "src": "#"
+  },
+  "content" : {
+    "width": "full",
+    "headline": "Get the new collection NOW!",
+    "text" :"<p>Too pretty to hide, with delicate lace in the long line shape you love.</p>"
+  },
+  "configuration" : {
+    "width": "col-3"
+  }
 }
+
+export {paragraphs, paragraphDefault};
+

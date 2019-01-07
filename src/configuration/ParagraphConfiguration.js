@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ButtonPicker from "./ButtonPicker"
+import ImagePicker from "./ImagePicker"
 
 let templates = [
   {
@@ -81,14 +82,15 @@ const ParagraphConfiguration = props => {
   const [Image, setImage] = useState(props.data.image);
   const [Content, setContent] = useState(props.data.content);
   const [ParagraphConfiguration, setParagraphConfiguration] = useState(props.data.configuration);
-  const [configuration, setConfiguration] = useState(false); 
+  const [configuration, setConfiguration] = useState(false);   
   
-  const handleTextChange = (e) => {
-    setButton({...Button,"text": e.target.value});
-  }
   const handleButtonStyleUpdate = (data) => {    
     setButton(data);
   } 
+
+  const handleImagePicker = (src) => {
+    setImage({...Image,"src":src});
+  }
 
   const handleLayoutChange = (e) => {    
     let template = templates.filter(o => o.label === e.currentTarget.value)[0];
@@ -118,10 +120,12 @@ const ParagraphConfiguration = props => {
       </div>
       <div className={containerClass}> 
         <button type="button" className="btn btn-link text-info position-absolute configuration-close" onClick={() => {setConfiguration(!configuration)}}><i className="ion-ios-close display-4"></i></button>
-        <div className="col-12 col-sm-6 bg-white p-5 border border-dark">
+        <div className="col-12 col-sm-6 bg-white p-5 border border-dark"> 
+          <ImagePicker update={(data)=> handleImagePicker(data)} />
           <div className="mb-4">
             <h6>Paragraph Width:</h6>
             <button type="button" className="btn btn-link rounded-0 border-right mr-2 p-0 pr-2 text-info" value="col-12" onClick={(e) => handleParagraphWidthChange(e)}>100%</button>
+            <button type="button" className="btn btn-link rounded-0 border-right mr-2 p-0 pr-2 text-info" value="col-lg-8" onClick={(e) => handleParagraphWidthChange(e)}>66%</button>
             <button type="button" className="btn btn-link rounded-0 border-right mr-2 p-0 pr-2 text-info" value="col-lg-6" onClick={(e) => handleParagraphWidthChange(e)}>50%</button>
             <button type="button" className="btn btn-link rounded-0 border-right mr-2 p-0 pr-2 text-info" value="col-lg-4" onClick={(e) => handleParagraphWidthChange(e)}>33%</button>
             <button type="button" className="btn btn-link rounded-0 border-right mr-2 p-0 pr-2 text-info" value="col-lg-3" onClick={(e) => handleParagraphWidthChange(e)}>25%</button>
@@ -140,11 +144,7 @@ const ParagraphConfiguration = props => {
               <button type="button" className="configuration-layout d-block btn btn-link rounded-0 mr-2 p-0 pr-2" value="ImageTopFullWidth" onClick={(e) => handleLayoutChange(e)}><img className="img-fluid" src="/img/icons-07.svg" /></button>
             </div>
           </div>
-          <ButtonPicker data={Button} updateButtonStyle={(data) => handleButtonStyleUpdate(data)} />
-          <div className="mb-4">
-            <h6>Text:</h6>
-            <input type="text" className="form-control rounded-0 col-4" value={Button.text} onChange={(e) => handleTextChange(e)} />
-          </div>          
+          <ButtonPicker data={Button} updateButtonStyle={(data) => handleButtonStyleUpdate(data)} />                
           <div>
             <button className="btn btn-info text-white" type="button" onClick={() => updateConfiguration()}>Save changes</button>
           </div>

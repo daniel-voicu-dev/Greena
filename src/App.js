@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import SiteHeader from './components/SiteHeader';
-import Homepage from './pages/Homepage';
+import Container from './pages/Container';
 import "./sass/main.sass";
 
 import { useContext } from 'react';
@@ -20,7 +20,7 @@ export default function App() {
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button> */}
-      <Homepage />
+      <Container />
     </div>
   );
 }
