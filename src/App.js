@@ -1,26 +1,30 @@
 import React from 'react';
-// import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import SiteHeader from './components/SiteHeader';
-import Container from './pages/Container';
+import Homepage from './pages/Homepage';
+import ProductList from './pages/ProductList';
 import "./sass/main.sass";
 
-import { useContext } from 'react';
+import PropTypes from 'prop-types'
 
-const ThemeContext = React.createContext("pink");
-
-export default function App() {
-  // Declare a new state variable, which we'll call "count"
-  // const [theme, setTheme] = useState(theme);
-  const theme = useContext(ThemeContext);  
- 
-  return (
-    <div className={theme}>
-       <SiteHeader />
-      {/* <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button> */}
-      <Container />
-    </div>
-  );
+const App = props => {
+  return (  
+      <Router>      
+        <div id="app">
+          <SiteHeader />
+          <Switch>
+              <Route path="/" exact component={Homepage} />
+              <Route path="/products" component={ProductList} />
+          </Switch>     
+        </div>  
+      </Router>
+  )
 }
+
+App.propTypes = {
+
+}
+
+export default App;
+
+

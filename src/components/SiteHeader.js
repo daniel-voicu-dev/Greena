@@ -1,6 +1,8 @@
 import React from 'react';
 import Promo from './Promo';
 import logo from './../logo.svg';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
 export default function SiteHeader() {  
   return (   
     <div id="header">
@@ -67,6 +69,23 @@ export default function SiteHeader() {
         </div>
       </div>		
     </div>	
+    <div className="header-lower bg-white">
+		<div className="container">
+			<div className="row">				
+        <nav className="nav nav-main col-12 px-3 d-flex justify-content-center">
+          <ul id="NavMain">
+            <li className="firstItem">
+              <Link  to="/">Homepage</Link>                 
+            </li>            
+            <li className="lastItem">
+              <Link to="/products">Sosete</Link>
+            </li>
+          </ul>                         
+        </nav>
+			</div>	
+		</div>
+		
+	</div>
   </div> 
   )
 }
