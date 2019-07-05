@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {Link} from "react-router-dom";
 import Promo from './Promo';
 import logo from './../logo.svg';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-
-export default function SiteHeader() {  
+import {headerNav} from "../resources/menus.js";
+const SiteHeader = props => {
+  let [nav, setNav] = useState(headerNav);
   return (   
     <div id="header">
     <div className="nav-upper bg-dark text-muted">
@@ -11,9 +12,7 @@ export default function SiteHeader() {
         <div className="row">
           <div className="col-6">
             <nav className="nav h-100 d-flex align-items-center">						
-                <a href="/" className="nav-item mr-3 text-muted" title="">News</a>
-                <a href="/" className="nav-item mr-3 text-muted" title="">Blog</a>               
-                <a href="/" className="nav-item mr-3 text-muted" title="">Catalogues</a>
+                {nav.map(({link, label, id}) => {return (<a href={link} key={id}className="nav-item mr-3 text-muted" title="">{label}</a>)})}
             </nav>             
           </div>
           <div className="col-sm-6">
@@ -73,12 +72,18 @@ export default function SiteHeader() {
 		<div className="container">
 			<div className="row">				
         <nav className="nav nav-main col-12 px-3 d-flex justify-content-center">
-          <ul id="NavMain">
-            <li className="firstItem">
-              <Link  to="/">Homepage</Link>                 
+          <ul id="NavMain" className="w-100 d-flex flex-wrap">
+            <li>
+              <Link to="/products">New!</Link>                 
+            </li>  
+            <li>
+              <Link to="/products">Bras</Link>                 
             </li>            
-            <li className="lastItem">
-              <Link to="/products">Sosete</Link>
+            <li>
+              <Link to="/products">Panties</Link>
+            </li>
+            <li>
+              <Link to="/products">Lingerie</Link>
             </li>
           </ul>                         
         </nav>
@@ -89,3 +94,6 @@ export default function SiteHeader() {
   </div> 
   )
 }
+
+
+export default SiteHeader;

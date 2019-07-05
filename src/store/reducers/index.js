@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
-import user from "./paragraphReducer";
-import event from "./productsReducer";
+import paragraphs from "./paragraphsReducer";
+import products from "./productsReducer";
+import config from "./configReducers";
 
-export default combineReducers({event,user, order})
+export default combineReducers({paragraphs, products, config});

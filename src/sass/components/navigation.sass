@@ -3,7 +3,14 @@
     position: relative
     list-style-type: none
     padding: 0
-    margin: 0
+    margin: 0  
+  a 
+    @extend .p-1
+    @extend .mr-2
+  li:first-child
+    padding-left: 0   
+  li:last-child
+    padding-right: 0  
   .dropdown
     position: static
     a:after
@@ -19,8 +26,7 @@
       opacity: 1
   a
     color: #000
-    padding: 0.5em 1em
-    line-height: 2
+    padding: 0.5em 1em    
     display: block
     letter-spacing: 1px
   .M2
@@ -48,8 +54,7 @@
         padding: 1rem 0
       &:last-child .style
         border: none
-    a
-      line-height: 2
+    a      
       font-weight: 400
       letter-spacing: 0px
       font-size: 1rem
@@ -65,8 +70,7 @@
     a
       font-weight: 300
       border: none
-      font-size: 0.9em
-      line-height: 2
+      font-size: 0.9em      
       text-transform: none
       letter-spacing: 0px
 
@@ -101,9 +105,6 @@ ul.pageLevel3
     padding: 2px 0
     display: block
     font-size: 12px
-
-.img-responsive
-  width: 100%
 
 .headline_anchor
   padding-left: 0 !important
@@ -174,14 +175,10 @@ ul.pageLevel3
   transform: scale(0.7)
   transition: all 0.3s ease-out
 
-.noPadding
-  padding: 0
-
 .img_wrap
   padding: 0 !important
 
-#NavMain > li
-  padding: 14px
+#NavMain > li 
   > a
     position: relative
     padding: 0
@@ -196,3 +193,6 @@ ul.pageLevel3
       transition: all 0.2s ease-out
   &:hover > a:before
     width: 100%
+.nav 
+  a 
+    text-decoration: none    
